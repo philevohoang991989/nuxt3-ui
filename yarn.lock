@@ -936,7 +936,7 @@
     which "^3.0.1"
     ws "^8.17.1"
 
-"@nuxt/icon@^1.4.0":
+"@nuxt/icon@^1.4.0", "@nuxt/icon@^1.4.5":
   version "1.4.5"
   resolved "https://registry.npmjs.org/@nuxt/icon/-/icon-1.4.5.tgz"
   integrity sha512-h0Fe1VhpVB5bcQutsH37G46DyE2u+j5j7+0sFbxT2ovRm+uILqo5ONXWe4WuJ20AtngvdpqvnqT25ZQtzx4K9A==

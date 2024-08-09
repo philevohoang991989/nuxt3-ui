@@ -5,6 +5,7 @@
       :loading="loading"
       label="Button"
       size="sm"
+      loading-icon="line-md:loading-loop"
     />
   </div>
 </template>
