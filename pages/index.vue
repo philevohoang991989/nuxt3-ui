@@ -7,10 +7,15 @@
       size="sm"
       loading-icon="line-md:loading-loop"
     />
+    <p>Count: {{ counter.count }}</p>
+    <UButton @click="counter.increment" label="Increment" />
   </div>
 </template>
 
 <script setup>
+
+const counter = useCounterStore()
+
 let loading = ref(true);
 </script>
 
