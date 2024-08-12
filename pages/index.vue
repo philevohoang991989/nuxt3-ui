@@ -16,17 +16,16 @@
 
 <script setup>
 import Demo from "./Demo.vue";
-
 const counter = useCounterStore();
 const userStore = useUserStore();
 let loading = ref(true);
-definePageMeta({
-  middleware:["already-auth"]
-})
+// definePageMeta({
+//   middleware: ["already-auth"],
+// });
 const signIn = async () => {
   await userStore.signIn({
-    username: 'emilys',
-    password: 'emilyspass'
+    username: "emilys",
+    password: "emilyspass",
   });
   await navigateTo("/profile", { replace: true });
 };

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+
+definePageMeta({
+  layout:'auth'
+})
 import type { FormError, FormSubmitEvent } from '../node_modules/@nuxt/ui/dist/runtime/types'
 import type {z} from 'zod'
 import { LoginValidationSchema } from '~/schemas/LoginSchema';
@@ -12,9 +16,11 @@ function handleFormSubmit(event: FormSubmitEvent<z.output<typeof LoginValidation
     console.log(event);
     
 }
+const layout = "auth";
 </script>
 
 <template>
+  <NuxtLayout :name="layout">
   <UContainer class="gird place-content-center h-screen">
     <UCard class="w-[500px]">
       <template #header>
@@ -38,5 +44,5 @@ function handleFormSubmit(event: FormSubmitEvent<z.output<typeof LoginValidation
       </UForm>
       
     </UCard>
-  </UContainer>
+  </UContainer></NuxtLayout>
 </template>
