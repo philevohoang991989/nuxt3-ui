@@ -8,14 +8,16 @@
     </header>
     <div class="px-4 grow">
       <div class="grid gap-4">
-        <div
+        <NuxtLink
+          :href="item.path"
           v-for="(item, index) in items"
           :key="index"
+          exact-active-class="active"
           class="flex items-center gap-2 px-2 py-1 transition rounded cursor-pointer hover:bg-primary-400"
         >
-          <Icon size="20" :name="item.icon" class="text-black" />
-          <span class="text-gray-900">{{ item.title }}</span>
-        </div>
+          <Icon size="20" :name="item.icon" class="text-white" />
+          <span class="text-white">{{ item.title }}</span>
+        </NuxtLink>
       </div>
     </div>
   </div>
@@ -52,4 +54,10 @@ const items = ref([
 ]);
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.active{
+    background-color: #4ade80;
+    color: #fff;
+}
+
+</style>

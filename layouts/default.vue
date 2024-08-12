@@ -1,5 +1,5 @@
 <template>
-  <div class="grid items-start bg-white h-screen lg:flex">
+  <div class="grid items-start h-screen lg:flex">
     <Sidebar/>
     <div>
       <slot />

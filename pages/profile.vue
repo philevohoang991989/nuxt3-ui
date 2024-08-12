@@ -1,12 +1,11 @@
 <template>
-  <NuxtLayout :name="layout">
-    <div class="container py-5 min-h-screen">
+   <div class="container py-5 min-h-screen">
       <div>
         <h1>Profile</h1>
         <UButton label="Sign out" @click="signOut" />
         <pre>{{ userStore.user }}</pre>
       </div>
-    </div></NuxtLayout
+    </div>
   >
 </template>
 
