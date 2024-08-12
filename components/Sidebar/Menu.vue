@@ -13,30 +13,67 @@
           v-show="!item.children || item.children.length === 0"
           :href="item.path"
           exact-active-class="active"
-          class="flex items-center gap-2 px-2 py-1 transition rounded cursor-pointer hover:bg-primary-400"
+          class="flex items-center gap-2 px-2 py-1 transition cursor-pointer"
         >
-          <Icon size="20" :name="item.icon" class="text-white" />
-          <span class="text-white">{{ item.title }}</span>
+          <Icon size="20" :name="item.icon" class="text-white hover:text-primary-400" />
+          <span class="text-white text-[14px] hover:text-primary-400">{{ item.title }}</span>
         </NuxtLink>
         <div v-if="item.children.length > 0">
-          <UAccordion :items="item.children" class="bg-transparent">
-            <template #item="{ item }">
-              <p class="italic text-gray-900 dark:text-white text-center">
-                {{ item.description }}
-              </p>
-            </template>
-
-            <template #settings style="padding-left: 28px;">
-              <NuxtLink
-                :href="itemSub.path"
-                exact-active-class="active"
-                v-for="(itemSub, index) in item.children[0].subItem"
-                :key="index"
-                class="flex items-center gap-2 px-2 py-1 transition rounded cursor-pointer hover:bg-primary-400 h-[32px]"
+          <UAccordion
+            :items="item.children"
+            :ui="{ wrapper: 'flex flex-col w-full' }"
+          >
+            <template #default="{ item, index, open }">
+              <UButton
+                color="gray"
+                variant="ghost"
+                class="dark:border-gray-700 px-2 py-1"
+                :ui="{ rounded: 'rounded-none', padding: { sm: 'p-3' } }"
               >
-                <!-- <Icon size="20" :name="item.icon" class="text-white" /> -->
-                <span class="text-white">{{ itemSub.title }}</span>
-              </NuxtLink>
+                <template #settings>
+                  <div
+                    class="w-6 h-6 rounded-full bg-primary-500 dark:bg-primary-400 flex items-center justify-center -my-1"
+                  >
+                    <UIcon
+                      :name="item.icon"
+                      class="w-4 h-4 text-white dark:text-gray-900"
+                    />
+                  </div>
+                </template>
+
+                <span class="truncate text-[14px]">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                    name="i-heroicons-chevron-right-20-solid"
+                    class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                    :class="[open && 'rotate-90']"
+                  />
+                </template>
+              </UButton>
+            </template>
+            <template
+              #settings
+              class="space-y-1.5 border-l border-gray-200 dark:border-gray-800 ml-2.5"
+            >
+              <nav
+                class="space-y-3 border-l border-gray-200 dark:border-gray-800 ml-2.5"
+              >
+                <div class="space-y-1.5">
+                  <NuxtLink
+                    :href="itemSub.path"
+                    exact-active-class="active"
+                    v-for="(itemSub, index) in item.children[0].subItem"
+                    :key="index"
+                    class="flex items-center gap-2 px-2 py-1 transition cursor-pointer hover:text-[#4ade80] h-[32px]"
+                  >
+                    <!-- <Icon size="20" :name="item.icon" class="text-white" /> -->
+                    <span class="text-white text-[14px] hover:text-[#4ade80]">{{
+                      itemSub.title
+                    }}</span>
+                  </NuxtLink>
+                </div>
+              </nav>
             </template>
           </UAccordion>
         </div>
@@ -100,7 +137,11 @@ const items = ref([
 
 <style lang="scss" scoped>
 .active {
-  background-color: #4ade80;
-  color: #fff;
+  border-left:1px solid #4ade80;
+  // color: #4ade80;
+  span{
+    color: #4ade80;
+    font-weight: 500;
+  }
 }
 </style>
