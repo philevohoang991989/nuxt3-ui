@@ -3,6 +3,9 @@
   <UTabs :items="items" />
 </template>
 <script setup>
+definePageMeta({
+  middleware: "auth",
+});
 const items = [{
   label: 'Tab1',
   icon: 'i-heroicons-information-circle',

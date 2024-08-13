@@ -27,7 +27,7 @@
               <UButton
                 color="gray"
                 variant="ghost"
-                class="dark:border-gray-700 px-2 py-1"
+                class="dark:border-gray-700 px-2 py-1 dark:hover:bg-transparent"
                 :ui="{ rounded: 'rounded-none', padding: { sm: 'p-3' } }"
               >
                 <template #settings>
@@ -41,7 +41,7 @@
                   </div>
                 </template>
 
-                <span class="truncate text-[14px]">{{ item.label }}</span>
+                <span class="text-sm/6 truncate">{{ item.label }}</span>
 
                 <template #trailing>
                   <UIcon
@@ -65,10 +65,10 @@
                     exact-active-class="active"
                     v-for="(itemSub, index) in item.children[0].subItem"
                     :key="index"
-                    class="flex items-center gap-2 px-2 py-1 transition cursor-pointer hover:text-[#4ade80] h-[32px]"
+                    class="flex items-center gap-1.5 group border-l -ml-px pl-4 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 border-transparent hover:border-gray-500 dark:hover:border-gray-400"
                   >
                     <!-- <Icon size="20" :name="item.icon" class="text-white" /> -->
-                    <span class="text-white text-[14px] hover:text-[#4ade80]">{{
+                    <span class="text-sm/6 truncate">{{
                       itemSub.title
                     }}</span>
                   </NuxtLink>
